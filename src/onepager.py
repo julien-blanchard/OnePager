@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 from typing import List, Set, Dict, Tuple
 
-class MarkdownParser: 
+class OnePager: 
 
     def __init__(self):
         self.file_name: str = sys.argv[1]
@@ -23,9 +23,9 @@ class MarkdownParser:
                 <link rel="stylesheet" href={{css_framework}}>
             </head>
             <body>
-                <div class="container">
+                <main class="container">
                     {{markdown_file}}
-                </div>
+                </main>
             </body>
             </html>
         """
@@ -64,7 +64,7 @@ class MarkdownParser:
             elif line.startswith("END"):
                 parsed_body += "</details>"
             else:
-                parsed_body += f" {line} "
+                parsed_body += f"\n {line} "
         return parsed_body 
 
     def convertToHTML(self) -> str:
@@ -97,6 +97,14 @@ class MarkdownParser:
                 "</code>",
                 "</pre></code>"
             )
+            .replace(
+                "??!",
+                "<kbd>"
+            )
+            .replace(
+                "!??",
+                "</kbd>"
+            )
         )
         return html_final
     
@@ -107,8 +115,8 @@ class MarkdownParser:
             file.write(html_final)
 
 def runOnePager():
-    mp = MarkdownParser()
+    op = OnePager()
     try:
-        mp.saveFile()
+        op.saveFile()
     except Exception as e:
         print(e)
