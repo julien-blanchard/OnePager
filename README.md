@@ -1,7 +1,10 @@
+![PyPi](https://img.shields.io/badge/pypi-onepager-orange)
 ![Project status](https://img.shields.io/badge/version-0.1-green)
 ![Python version](https://img.shields.io/badge/requires-python_3.7-blue)
 
 # :notebook: **OnePager** :notebook:
+
+![onepager](https://github.com/julien-blanchard/OnePager/blob/main/img/onepager_demo.gif)
 
 Welcome to the official repository for the **OnePager** library. **OnePager** is still under development and is therefore likely to undergo some minor changes over the next few months.
 
@@ -66,6 +69,14 @@ Pizzas are **awesome**
 END
 ```
 
+3.  **Support for text highlighting**: Simply wrap any term or sequence of terms you want highlighted around the `??!` and `!??` signs.
+
+Example:
+
+```markdown
+It seems that ??!this word!?? is very important.
+```
+
 Next simply paste the following code into a file named `test.md`:
 
 ```markdown
@@ -73,9 +84,9 @@ This is a document,Julien,Fiona
 
 Hi, I like junk food!
 
-BEGIN,Pizza
+BEGIN,My fav type of food
 
-Pizzas are **awesome**
+Pizzas are ??!awesome!??
 
 END
 ```
@@ -86,9 +97,7 @@ Now run the following command:
 onepager test.md
 ```
 
-This should create an *html* file named *test.html* that looks like this:
-
-![example](example.gif)
+This should create an *html* file named *test.html* that you can now open in your favourite browser.
 
 ## Offline version :open_file_folder:
 
